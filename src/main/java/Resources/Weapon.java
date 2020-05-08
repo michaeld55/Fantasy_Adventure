@@ -1,17 +1,12 @@
 package Resources;
 
-public class Weapon {
+public class Weapon extends Item{
 
-    private String name;
     private int damage;
 
     public Weapon(String name, int damage) {
-        this.name = name;
+        super(name);
         this.damage = damage;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getDamage() {

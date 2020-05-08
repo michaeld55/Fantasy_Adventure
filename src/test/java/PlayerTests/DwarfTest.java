@@ -28,7 +28,8 @@ public class DwarfTest {
             assertEquals(50, gimli.getHealth());
             assertEquals("Double Blade", gimli.getWeapon().getName());
             assertEquals(0, gimli.getPouch());
-            assertEquals("leather",gimli.getArmour().getName() );
+            assertEquals("leather",gimli.getArmour().getName());
+            assertEquals(2, gimli.getArmour().getArmourPoint());
 
         }
     }

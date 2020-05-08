@@ -4,6 +4,8 @@ import Resources.Potion;
 import Resources.Spell;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Cleric extends Player{
 
@@ -14,6 +16,13 @@ public class Cleric extends Player{
         super(name, health);
         this.potions = new ArrayList<Potion>();
         this.spells = new ArrayList<Spell>();
+    }
+
+    public void hit(int damage) {
+        while (this.getHealth() > 0 && damage > 0){
+            this.wound();
+            damage -= 1;
+        }
     }
 
     public ArrayList<Potion> getPotions() {
@@ -31,4 +40,12 @@ public class Cleric extends Player{
     public void addPotion(Potion potion){
         this.potions.add(potion);
     }
+
+    public int attack() {
+        Collections.shuffle(spells);
+        Spell spell = spells.get(0);
+        return spell.getAttackPoints();
+    }
+
+
 }

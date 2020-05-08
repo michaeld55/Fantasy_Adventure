@@ -1,16 +1,12 @@
 package Resources;
 
-public class Potion {
-    private String name;
+public class Potion extends Item{
+
     private int healPoints;
 
     public Potion(String name, int healPoints) {
-        this.name = name;
+        super(name);
         this.healPoints = healPoints;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getHealPoints() {

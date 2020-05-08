@@ -1,18 +1,14 @@
 package Resources;
 
-public class Spell {
-    private String name;
+public class Spell extends Item{
+
     private int attackPoints;
     private int healPoints;
 
     public Spell(String name, int attackPoints, int healPoints) {
-        this.name = name;
+        super(name);
         this.attackPoints = attackPoints;
         this.healPoints = healPoints;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getAttackPoints() {

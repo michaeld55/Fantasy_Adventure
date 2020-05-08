@@ -29,4 +29,20 @@ public class Orc extends Enemy {
     public void setArmour(Armour armour) {
         this.armour = armour;
     }
+
+    public void hit(int damage) {
+        while (armour.getArmourPoint() > 0 && damage > 0){
+            armour.damage();
+            damage -= 1;
+
+        }
+        while (this.getHealth() > 0 && damage > 0){
+            this.wound();
+            damage -= 1;
+        }
+    }
+
+    public int attack() {
+        return this.weapon.getDamage();
+    }
 }

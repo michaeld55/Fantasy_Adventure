@@ -21,4 +21,13 @@ public abstract class Enemy {
     public void setHealth(int health) {
         this.health = health;
     }
+
+    public abstract void hit(int damage);
+
+    public void wound(){
+        this.health -= 1;
+    };
+
+    public abstract int attack();
+
 }

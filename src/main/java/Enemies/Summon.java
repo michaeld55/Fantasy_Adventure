@@ -23,4 +23,29 @@ public class Summon extends Enemy{
     public void setSummoned(boolean summoned) {
         this.summoned = summoned;
     }
+
+    public void hit(int damage) {
+        while (this.armour.getArmourPoint() > 0 && damage > 0){
+            armour.damage();
+            damage -= 1;
+
+
+        }
+        while (this.summoned && damage > 0){
+            this.wound();
+            this.checkStatus();
+            damage -= 1;
+        }
+    }
+
+    public int attack() {
+        return this.weapon.getDamage();
+    }
+
+    public void checkStatus() {
+
+        if (this.getHealth() == 0) {
+            summoned = false;
+        }
+    }
 }

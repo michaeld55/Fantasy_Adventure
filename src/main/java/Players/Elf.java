@@ -5,6 +5,7 @@ import Resources.Spell;
 import Resources.Weapon;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Elf extends Player {
 
@@ -42,4 +43,25 @@ public class Elf extends Player {
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
+
+    public int attack() {
+        Collections.shuffle(spells);
+        Spell spell = spells.get(0);
+        int damage = spell.getAttackPoints();
+        damage += weapon.getDamage();
+        return damage;
+    }
+
+    public void hit(int damage) {
+        while (armour.getArmourPoint() > 0 && damage > 0){
+            armour.damage();
+            damage -= 1;
+
+        }
+        while (this.getHealth() > 0 && damage > 0){
+            this.wound();
+            damage -= 1;
+        }
+    }
+
 }

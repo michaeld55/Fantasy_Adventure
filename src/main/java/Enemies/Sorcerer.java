@@ -4,6 +4,7 @@ import Resources.Spell;
 import Resources.Staff;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Sorcerer extends Enemy{
 
@@ -42,4 +43,27 @@ public class Sorcerer extends Enemy{
         this.summon = summon;
 
     }
+
+    public void hit(int damage) {
+        while (summon.getHealth() > 0 && damage > 0){
+            summon.wound();
+            damage -= 1;
+
+
+        }
+        while (this.getHealth() > 0 && damage > 0){
+            this.wound();
+            damage -= 1;
+        }
+    }
+
+    public int attack() {
+        int damage = staff.getAttackPoints();
+        Collections.shuffle(spells);
+        Spell spell = spells.get(0);
+        damage += spell.getAttackPoints();
+        return damage;
+    }
+
+
 }

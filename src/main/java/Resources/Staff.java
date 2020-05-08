@@ -1,19 +1,15 @@
 package Resources;
 
-public class Staff {
+public class Staff extends Item{
 
-    private String name;
+
     private int attackPoints;
     private int healPoints;
 
     public Staff(String name, int attackPoints, int healPoints) {
-        this.name = name;
+        super(name);
         this.attackPoints = attackPoints;
         this.healPoints = healPoints;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getAttackPoints() {

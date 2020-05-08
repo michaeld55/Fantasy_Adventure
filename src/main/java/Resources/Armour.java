@@ -1,20 +1,26 @@
 package Resources;
 
-public class Armour {
+public class Armour extends Item implements ITreasure{
 
-    private String name;
+
     private int armourPoint;
 
-    public Armour(String name, int armourPoint) {
-        this.name = name;
+    public Armour(String name, int armourPoint, int value) {
+        super(name, value);
         this.armourPoint = armourPoint;
+
     }
 
-    public String getName() {
-        return name;
-    }
 
     public int getArmourPoint() {
         return armourPoint;
+    }
+
+    public Item giveItem(Item item) {
+        return this;
+    }
+
+    public void damage() {
+        this.armourPoint -= 1;
     }
 }
