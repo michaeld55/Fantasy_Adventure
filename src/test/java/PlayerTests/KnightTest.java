@@ -16,8 +16,8 @@ public class KnightTest {
 
     @Before
     public void before() {
-        sword = new Weapon("Excalibur", 20);
-        plate = new Armour("Plated", 7);
+        sword = new Weapon("Excalibur", 20, 50);
+        plate = new Armour("Plated", 7, 50);
         arthur = new Knight("Sir Arthur", 60, sword, plate);
     }
 

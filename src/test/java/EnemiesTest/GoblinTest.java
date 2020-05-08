@@ -16,8 +16,8 @@ public class GoblinTest {
 
     @Before
     public void before() {
-        sword = new Weapon("sword", 20);
-        none = new Armour("none", 0, 10);
+        sword = new Weapon("sword", 20, 10);
+        none = new Armour("none", 0, 0);
         styx = new Goblin("Styx", 30, sword, none);
     }
 

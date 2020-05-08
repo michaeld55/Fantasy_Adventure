@@ -16,8 +16,8 @@ public class OrcTest {
 
     @Before
     public void before() {
-        axe = new Weapon("axe", 30);
-        basic = new Armour("Leather", 5);
+        axe = new Weapon("axe", 30, 20);
+        basic = new Armour("Leather", 5, 5);
         arkail = new Orc("Arkail", 40, axe, basic);
     }
 

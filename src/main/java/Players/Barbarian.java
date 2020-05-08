@@ -59,7 +59,9 @@ public class Barbarian extends Player {
 
     private void checkArmourStats(Armour newArmour) {
         if(this.armour.getArmourPoint() < newArmour.getArmourPoint()){
+            this.sellItem(armour);
             this.setArmour(newArmour);
+
         }else{
             this.sellItem(newArmour);
         }
@@ -67,6 +69,7 @@ public class Barbarian extends Player {
 
     public void checkWeaponStats(Weapon newWeapon){
         if(this.weapon.getDamage() < newWeapon.getDamage()){
+            this.sellItem(weapon);
             this.setWeapon(newWeapon);
         }else{
             this.sellItem(newWeapon);

@@ -22,8 +22,8 @@ public class RoomTest {
 
     @Before
     public void before(){
-        axe = new Weapon("axe", 30);
-        basic = new Armour("Leather", 5);
+        axe = new Weapon("axe", 30, 10);
+        basic = new Armour("Leather", 5, 10);
         arkail = new Orc("Arkail", 40, axe, basic);
         room = new Room();
         conan = new Barbarian("Conan",50, axe, basic);
@@ -57,7 +57,7 @@ public class RoomTest {
 
     @Test
     public void canBeComplete(){
-        Armour chain = new Armour("Chain mail", 10);
+        Armour chain = new Armour("Chain mail", 10, 20);
         room.addEnemy(arkail);
         room.addTreasure(chain);
         room.encounter(conan);

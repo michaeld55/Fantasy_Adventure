@@ -16,10 +16,6 @@ public class Armour extends Item implements ITreasure{
         return armourPoint;
     }
 
-    public Item giveItem(Item item) {
-        return this;
-    }
-
     public void damage() {
         this.armourPoint -= 1;
     }

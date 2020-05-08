@@ -18,9 +18,9 @@ public class ElfTest {
 
     @Before
     public void before() {
-        bow = new Weapon("Bow", 30);
-        heal = new Spell("Heal", 0, 20);
-        armour = new Armour("Chain mail", 10);
+        bow = new Weapon("Bow", 30, 10);
+        heal = new Spell("Heal", 0, 20, 1);
+        armour = new Armour("Chain mail", 10, 20);
         legolas = new Elf("Legolas", 40, armour, bow);
     }
 

@@ -1,11 +1,11 @@
 package Resources;
 
-public class Potion extends Item{
+public class Potion extends Item implements ITreasure{
 
     private int healPoints;
 
-    public Potion(String name, int healPoints) {
-        super(name);
+    public Potion(String name, int healPoints, int value) {
+        super(name, value);
         this.healPoints = healPoints;
     }
 

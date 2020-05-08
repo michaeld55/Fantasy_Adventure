@@ -1,13 +1,13 @@
 package Resources;
 
-public class Staff extends Item{
+public class Staff extends Item implements ITreasure{
 
 
     private int attackPoints;
     private int healPoints;
 
-    public Staff(String name, int attackPoints, int healPoints) {
-        super(name);
+    public Staff(String name, int attackPoints, int healPoints, int value) {
+        super(name, value);
         this.attackPoints = attackPoints;
         this.healPoints = healPoints;
     }
@@ -19,4 +19,5 @@ public class Staff extends Item{
     public int getHealPoints() {
         return healPoints;
     }
+
 }

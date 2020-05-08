@@ -17,8 +17,8 @@ public class DwarfTest {
 
     @Before
         public void before() {
-            axe = new Weapon("Double Blade", 10);
-            basic = new Armour("leather", 2);
+            axe = new Weapon("Double Blade", 10, 20);
+            basic = new Armour("leather", 2, 5);
             gimli = new Dwarf("Gimli",50, axe, basic);
         }
 

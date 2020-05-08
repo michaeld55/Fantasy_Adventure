@@ -16,8 +16,8 @@ public class ClericTest {
 
     @Before
     public void before() {
-        healSpell = new Spell("Heal", 0, 20);
-        healPotion = new Potion("Heal",  5);
+        healSpell = new Spell("Heal", 0, 20, 1);
+        healPotion = new Potion("Heal",  5, 5);
         wynne = new Cleric("Wynne", 50);
 
     }

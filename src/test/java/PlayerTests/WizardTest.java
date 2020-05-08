@@ -25,12 +25,12 @@ public class WizardTest {
 
     @Before
     public void before() {
-        staff = new Staff("Sidhe", 30, 10);
-        attack = new Spell("attack", 30, 0);
-        heal = new Spell("heal", 0, 20);
+        staff = new Staff("Sidhe", 30, 10, 10);
+        attack = new Spell("attack", 30, 0, 1);
+        heal = new Spell("heal", 0, 20, 1);
         merlin = new Wizard("Merlin", 30, staff);
-        claw = new Weapon("Claw", 5);
-        hide = new Armour("Hide", 5);
+        claw = new Weapon("Claw", 5, 0);
+        hide = new Armour("Hide", 5, 0);
         imp = new Summon("Imp", 10, claw, hide);
     }
 

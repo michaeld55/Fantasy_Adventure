@@ -18,10 +18,10 @@ public class BarbTest {
 
     @Before
     public void before() {
-        sword = new Weapon("Father Sword", 10);
-        axe = new Weapon("Battle axe", 20);
-        basic = new Armour("leather", 2);
-        chain = new Armour("Chain mail", 4);
+        sword = new Weapon("Father's Sword", 10, 7);
+        axe = new Weapon("Battle axe", 20, 14);
+        basic = new Armour("leather", 2, 5);
+        chain = new Armour("Chain mail", 4, 10);
         conan = new Barbarian("Conan",50, sword, basic);
     }
 

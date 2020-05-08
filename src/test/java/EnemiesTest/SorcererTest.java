@@ -17,8 +17,8 @@ public class SorcererTest {
 
     @Before
     public void before() {
-        staff = new Staff("Wooden Staff", 30, 10);
-        attack = new Spell("attack", 30, 0);
+        staff = new Staff("Wooden Staff", 30, 10, 10);
+        attack = new Spell("attack", 30, 0, 1);
         thulsa = new Wizard("Thulsa", 30, staff);
     }
 
