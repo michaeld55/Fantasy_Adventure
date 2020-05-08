@@ -1,5 +1,7 @@
 package Players;
 
+
+import Enemies.Summon;
 import Resources.Spell;
 import Resources.Staff;
 
@@ -9,6 +11,8 @@ public class Wizard extends Player {
 
     private Staff staff;
     private ArrayList<Spell> spells;
+    private Summon summon;
+
 
     public Wizard(String name, int health, Staff staff) {
         super(name, health);
@@ -30,5 +34,22 @@ public class Wizard extends Player {
 
     public void addSpell(Spell spell){
         this.spells.add(spell);
+    }
+
+    public Summon getSummon() {
+        this.summon.setSummoned(true);
+        return summon;
+    }
+
+    public void setSummon(Summon summon) {
+
+        this.summon = summon;
+
+    }
+
+    public int getSpellsSize() {
+
+        return this.spells.size();
+
     }
 }

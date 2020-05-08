@@ -6,6 +6,7 @@ import rooms.Exit;
 import rooms.Room;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class RoomTest {
 
@@ -20,5 +21,6 @@ public class RoomTest {
     public void canAddExit(){
         room.addExit(Exit.NORTH);
         assertEquals(Exit.NORTH, room.getExit(Exit.NORTH));
+        assertNull(room.getExit(Exit.SOUTH));
     }
 }

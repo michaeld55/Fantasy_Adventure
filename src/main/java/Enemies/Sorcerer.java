@@ -9,6 +9,7 @@ public class Sorcerer extends Enemy{
 
     private ArrayList<Spell> spells;
     private Staff staff;
+    private Summon summon;
 
     public Sorcerer(String name, int health, Staff staff) {
         super(name, health);
@@ -30,4 +31,15 @@ public class Sorcerer extends Enemy{
      public void addSpell(Spell spell){
         this.spells.add(spell);
      }
+
+    public Summon getSummon() {
+        this.summon.setSummoned(true);
+        return summon;
+    }
+
+    public void setSummon(Summon summon) {
+
+        this.summon = summon;
+
+    }
 }
