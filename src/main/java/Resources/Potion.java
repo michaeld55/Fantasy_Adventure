@@ -1,7 +1,5 @@
 package Resources;
 
-import javax.swing.*;
-
 public class Potion {
     private String name;
     private int healPoints;
