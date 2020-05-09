@@ -6,12 +6,14 @@ public abstract class Player {
 
     private String name;
     private int health;
+    private int maxHealth;
     private int pouch;
 
     public Player(String name, int health) {
         this.name = name;
         this.health = health;
         this.pouch = 0;
+        this.maxHealth = health;
     }
 
     public String getName() {
@@ -20,6 +22,10 @@ public abstract class Player {
 
     public int getHealth() {
         return health;
+    }
+
+    public int getMaxHealth(){
+        return maxHealth;
     }
 
     public void setHealth(int health) {
@@ -47,4 +53,11 @@ public abstract class Player {
     public void sellItem(ITreasure treasure){
         this.pouch += treasure.getValue();
     };
+
+    protected void heal(int healPoints) {
+        while ((this.getHealth() < this.maxHealth) && (healPoints > 0)){
+            this.health ++;
+            healPoints --;
+        }
+    }
 }

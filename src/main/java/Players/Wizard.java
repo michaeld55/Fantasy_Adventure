@@ -82,7 +82,7 @@ public class Wizard extends Player {
     }
 
     private void checkSpellStats(Spell newSpell) {
-        if(this.spells.size() <= 4){
+        if(this.spells.size() < 4){
             spells.add(newSpell);
         }else{
             this.askToRemoveSpell(newSpell);

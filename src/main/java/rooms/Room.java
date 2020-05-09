@@ -58,18 +58,28 @@ public class Room {
 
         if(enemy != null) {
             int damage = 0;
-            while (enemy.getHealth() > 0 || player.getHealth() > 0) {
+            while (enemy.getHealth() > 0 && player.getHealth() > 0) {
                 damage = player.attack();
                 enemy.hit(damage);
+                if (enemy.getHealth() <= 0) break;
                 damage = enemy.attack();
                 player.hit(damage);
             }
-            if(player.getHealth() > 0 && treasure != null){
 
-                player.loot(treasure);
-
-            }
         }
 
+        if(player.getHealth() > 0 && treasure != null){
+            this.enemy = null;
+            player.loot(treasure);
+            this.treasure = null;
+        }
+
+        if(this.enemy == null && this.treasure == null){
+            this.complete = true;
+        }
+    }
+
+    public boolean isComplete() {
+        return complete;
     }
 }

@@ -1,6 +1,7 @@
 package Players;
 
 import Resources.Armour;
+import Resources.ITreasure;
 import Resources.Weapon;
 
 public class Dwarf extends Player {
@@ -44,6 +45,35 @@ public class Dwarf extends Player {
 
     public int attack() {
         return weapon.getDamage();
+    }
+
+    public void loot(ITreasure treasure) {
+        if(treasure instanceof Weapon){
+            this.checkWeaponStats((Weapon) treasure);
+        }else if(treasure instanceof Armour){
+            this.checkArmourStats((Armour) treasure);
+        }else {
+            this.sellItem(treasure);
+        }
+    }
+
+    private void checkArmourStats(Armour newArmour) {
+        if(this.armour.getArmourPoint() < newArmour.getArmourPoint()){
+            this.sellItem(armour);
+            this.setArmour(newArmour);
+
+        }else{
+            this.sellItem(newArmour);
+        }
+    }
+
+    public void checkWeaponStats(Weapon newWeapon){
+        if(this.weapon.getDamage() < newWeapon.getDamage()){
+            this.sellItem(weapon);
+            this.setWeapon(newWeapon);
+        }else{
+            this.sellItem(newWeapon);
+        }
     }
 
 

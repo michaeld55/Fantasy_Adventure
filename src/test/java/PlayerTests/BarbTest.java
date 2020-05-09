@@ -29,7 +29,7 @@ public class BarbTest {
     public void basicTests() {
         assertEquals("Conan", conan.getName());
         assertEquals(50, conan.getHealth());
-        assertEquals("Father Sword", conan.getWeapon().getName());
+        assertEquals("Father's Sword", conan.getWeapon().getName());
         assertEquals(0, conan.getPouch());
         assertEquals("leather",conan.getArmour().getName() );
 

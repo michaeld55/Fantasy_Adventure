@@ -9,8 +9,7 @@ import org.junit.Test;
 import rooms.Exit;
 import rooms.Room;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class RoomTest {
 
@@ -56,12 +55,24 @@ public class RoomTest {
     }
 
     @Test
-    public void canBeComplete(){
+    public void canBeCompleted(){
         Armour chain = new Armour("Chain mail", 10, 20);
         room.addEnemy(arkail);
         room.addTreasure(chain);
         room.encounter(conan);
-        arkail.setHealth(0);
+        assertEquals(chain.getArmourPoint(), conan.getArmour().getArmourPoint());
+        assertEquals(10, conan.getPouch());
+        assertTrue(room.isComplete());
+    }
 
+    @Test
+    public void canBeFailed(){
+        Armour uber = new Armour("Uber", 100, 2000);
+        arkail.setArmour(uber);
+        room.addEnemy(arkail);
+        room.encounter(conan);
+
+        assertEquals(0, conan.getHealth());
+        assertFalse(room.isComplete());
     }
 }

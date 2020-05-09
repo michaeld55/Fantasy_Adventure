@@ -59,8 +59,54 @@ public class Cleric extends Player{
         }
     }
 
-    private void checkPotionStats(Potion treasure) {
+    private void checkPotionStats(Potion newPotion) {
 
+        if (this.potions.size() < 2){
+            this.addPotion(newPotion);
+        }else {
+            this.removeWorstPotion(newPotion);
+        }
+
+    }
+
+    private void removeWorstPotion(Potion newPotion) {
+        Potion potionOne = potions.get(0);
+        Potion potionTwo = potions.get(1);
+        Potion removedPotion = newPotion;
+
+       if(newPotion.getHealPoints() > potionOne.getHealPoints()){
+           removedPotion = potionOne;
+           this.potions.remove(removedPotion);
+           this.potions.add(newPotion);
+       }else if(newPotion.getHealPoints() > potionTwo.getHealPoints()){
+           removedPotion = potionTwo;
+           this.potions.remove(removedPotion);
+           this.potions.add(newPotion);
+       }
+
+        String input = "";
+        System.out.println("Use " +removedPotion.getName() +" Potion or Sell" +removedPotion.getName() +
+                " Potion. Please enter: Use or Sell");
+
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        input = scanner.next();
+        input.toLowerCase();
+        boolean valid = false;
+        while(valid = false){
+            if(input.equals("use") || input.equals("sell")){
+                valid = true;
+            }else {
+                System.out.println(input + " is a not a valid response please only enter Use or Sell");
+            }
+        }
+        System.out.println("You chose: " + input);
+        if (input.equals("Sell")){
+            System.out.println("You Have sold " + removedPotion.getName() + " for " + removedPotion.getValue() +" Gold");
+            this.sellItem(removedPotion);
+        }else{
+            System.out.println("You Have Used " + removedPotion.getName() + " for " + removedPotion.getHealPoints() +" Health");
+            this.heal(removedPotion.getHealPoints());
+        }
     }
 
 
