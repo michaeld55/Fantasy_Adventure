@@ -65,5 +65,4 @@ public class Sorcerer extends Enemy{
         return damage;
     }
 
-
 }

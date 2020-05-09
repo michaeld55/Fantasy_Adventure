@@ -54,15 +54,20 @@ public class Barbarian extends Player {
             this.checkArmourStats((Armour) treasure);
         }else {
             this.sellItem(treasure);
+            System.out.println("You Could Not Use " + treasure.getName() + " So It was Sold For "
+                    + treasure.getValue() + " Gold!");
         }
     }
 
     private void checkArmourStats(Armour newArmour) {
         if(this.armour.getArmourPoint() < newArmour.getArmourPoint()){
+            System.out.println("The Armour You Found Was Better So You Equip " + newArmour.getName() +
+                    " And Sell Your Old " + armour.getName() + " for " + armour.getValue() + " Gold!");
             this.sellItem(armour);
             this.setArmour(newArmour);
 
         }else{
+
             this.sellItem(newArmour);
         }
     }

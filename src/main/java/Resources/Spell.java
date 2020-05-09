@@ -1,6 +1,6 @@
 package Resources;
 
-public class Spell extends Item{
+public class Spell extends Item {
 
     private int attackPoints;
     private int healPoints;

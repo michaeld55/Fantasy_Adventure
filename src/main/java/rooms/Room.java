@@ -4,8 +4,9 @@ import Enemies.Enemy;
 import Enemies.Orc;
 import Players.Barbarian;
 import Players.Player;
-import Resources.Armour;
 import Resources.ITreasure;
+import com.sun.org.apache.xpath.internal.objects.XNull;
+import quest.Quest;
 
 import java.util.ArrayList;
 
@@ -34,16 +35,8 @@ public class Room {
         return enemy;
     }
 
-    public void setEnemy(Enemy enemy) {
-        this.enemy = enemy;
-    }
-
     public ITreasure getTreasure() {
         return treasure;
-    }
-
-    public void setTreasure(ITreasure treasure) {
-        this.treasure = treasure;
     }
 
     public void addEnemy(Enemy enemy) {
@@ -57,29 +50,57 @@ public class Room {
     public void encounter(Player player) {
 
         if(enemy != null) {
-            int damage = 0;
-            while (enemy.getHealth() > 0 && player.getHealth() > 0) {
-                damage = player.attack();
-                enemy.hit(damage);
-                if (enemy.getHealth() <= 0) break;
-                damage = enemy.attack();
-                player.hit(damage);
+            if (player.getHealth() > 0) {
+                System.out.println(player.getName() + " You have Encountered An Enemy " + enemy.getName());
+                int damage = 0;
+                while (enemy.getHealth() > 0 && player.getHealth() > 0) {
+                    damage = player.attack();
+                    enemy.hit(damage);
+                    System.out.println("You Hit The Enemy " + enemy.getName() + " for " + damage + " Damage! It has " + enemy.getHealth() +
+                            " Health Left");
+                    if (enemy.getHealth() <= 0) break;
+                    damage = enemy.attack();
+                    player.hit(damage);
+                    System.out.println("You Were Hit By The Enemy " + enemy.getName() + " for " + damage + " Damage! You have " + player.getHealth() +
+                            " Health Left");
+                }
             }
 
+        }
+        if (enemy != null){
+            if(this.enemy.getHealth() == 0 && treasure == null) {
+             this.enemy = null;
+             this.complete = true;
+            }
         }
 
         if(player.getHealth() > 0 && treasure != null){
             this.enemy = null;
+            System.out.println("You Found A " + treasure.getName());
             player.loot(treasure);
-            this.treasure = null;
-        }
 
-        if(this.enemy == null && this.treasure == null){
+            this.treasure = null;
             this.complete = true;
         }
+
+
     }
 
     public boolean isComplete() {
         return complete;
+    }
+
+    public void create() {
+        int random = (int)(Math.random() * 2 + 1 );
+
+
+        if(random == 1){
+            Enemy enemy = Quest.createNewEnemy();
+            this.addEnemy(enemy);
+        }else{
+            ITreasure treasure = Quest.createNewTreasure();
+            this.addTreasure(treasure);
+
+        }
     }
 }

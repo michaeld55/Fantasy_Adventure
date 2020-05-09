@@ -1,6 +1,6 @@
 package Resources;
 
-public class Staff extends Item implements ITreasure{
+public class Staff extends Item {
 
 
     private int attackPoints;

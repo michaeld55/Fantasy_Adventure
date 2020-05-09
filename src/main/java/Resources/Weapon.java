@@ -1,6 +1,6 @@
 package Resources;
 
-public class Weapon extends Item implements ITreasure{
+public class Weapon extends Item {
 
     private int damage;
 

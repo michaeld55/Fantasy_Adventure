@@ -59,7 +59,12 @@ public class Wizard extends Player {
         int damage = staff.getAttackPoints();
         Collections.shuffle(spells);
         Spell spell = spells.get(0);
+        while (spell.getAttackPoints() == 0) {
+            Collections.shuffle(spells);
+            spell = spells.get(0);
+        }
         damage += spell.getAttackPoints();
+
         return damage;
     }
 
@@ -74,7 +79,7 @@ public class Wizard extends Player {
     }
 
     private void checkStaffStats(Staff newStaff) {
-        if((this.staff.getAttackPoints() > newStaff.getAttackPoints()) || (this.staff.getHealPoints() > newStaff.getHealPoints())){
+        if(this.staff.getAttackPoints() < newStaff.getAttackPoints() || this.staff.getHealPoints() < newStaff.getHealPoints()){
             this.askToChangeStaff(newStaff);
         }else {
             this.sellItem(newStaff);
@@ -93,7 +98,7 @@ public class Wizard extends Player {
     private void askToRemoveSpell(Spell newSpell) {
 
         String input = "";
-        System.out.println("Replace A Spell with" + newSpell.getName() +
+        System.out.println("Replace A Spell with " + newSpell.getName() +
                 " it does: " + newSpell.getAttackPoints() + " damage. " +
                 " It also Heals: " + newSpell.getHealPoints() + " Hit Points. " +
                 "Please enter: Yes or No");
@@ -122,9 +127,9 @@ public class Wizard extends Player {
         System.out.println("Choose a Spell To Replace ");
         int counter = 1;
         for (Spell spell : spells) {
-            System.out.println("Spell " + counter + ": Name" + spell.getName() +
-                    " it does: " + newSpell.getAttackPoints() + " damage. " +
-                    " It also Heals: " + newSpell.getHealPoints() + " Hit Points. ");
+            System.out.println("Spell " + counter + ": " + spell.getName() +
+                    " it does: " + spell.getAttackPoints() + " damage. " +
+                    " It also Heals: " + spell.getHealPoints() + " Hit Points. ");
             counter++;
         }
         System.out.println("To Replace a Spell Enter its Number. To Cancel Enter No");
@@ -133,7 +138,7 @@ public class Wizard extends Player {
 
         boolean valid = false;
 
-        while (valid = false) {
+        while (valid == false) {
             if (input.equals("no")) {
                 valid = true;
                 System.out.println("Cancelled Spell Replacement You Have Not Learned" + newSpell.getName());
@@ -153,7 +158,7 @@ public class Wizard extends Player {
                     spells.remove(removedSpell);
                     spells.add(newSpell);
                     System.out.println("You Replaced " + removedSpell.getName() + " With " + newSpell.getName());
-                    valid =true;
+                    valid = true;
                 }
             } else {
                 System.out.println(input + " is a not a valid response please only enter A Valid Number Or No");
@@ -163,10 +168,10 @@ public class Wizard extends Player {
 
     private void askToChangeStaff(Staff newStaff){
         String input = "";
-        System.out.println("Replace Your Staff with" + newStaff.getName() +
+        System.out.println("Replace Your Staff With " + newStaff.getName() +
                 " it does: " + newStaff.getAttackPoints() + " Bonus damage. " +
-                " It also Heals: " + newStaff.getHealPoints() + " Bonus Hit Points. " +
-                " Your Current Staff " + staff.getName() + " does: " + staff.getAttackPoints() +
+                " It also Heals: " + newStaff.getHealPoints() + " Bonus Hit Points. ");
+        System.out.println(" Your Current Staff " + staff.getName() + " does: " + staff.getAttackPoints() +
                 " Bonus damage. It also Heals: " + staff.getHealPoints() +
                 " Bonus Hit Points. Please enter: Yes or No");
 

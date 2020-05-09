@@ -1,6 +1,6 @@
 package Resources;
 
-public class Armour extends Item implements ITreasure{
+public class Armour extends Item {
 
 
     private int armourPoint;

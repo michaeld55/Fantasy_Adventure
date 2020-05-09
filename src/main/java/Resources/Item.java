@@ -1,6 +1,6 @@
 package Resources;
 
-public abstract class Item {
+public abstract class Item implements ITreasure{
 
     private String name;
     private int value;

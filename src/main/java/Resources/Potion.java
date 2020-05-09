@@ -1,6 +1,6 @@
 package Resources;
 
-public class Potion extends Item implements ITreasure{
+public class Potion extends Item {
 
     private int healPoints;
 

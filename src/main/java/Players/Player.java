@@ -51,6 +51,7 @@ public abstract class Player {
     public abstract void loot(ITreasure treasure);
 
     public void sellItem(ITreasure treasure){
+        System.out.println("The " + treasure.getName() + " You Found Was Worse Or Unsuitable So You Sold it for " + treasure.getValue() + " Gold!");
         this.pouch += treasure.getValue();
     };
 

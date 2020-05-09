@@ -11,7 +11,7 @@ public class Summon extends Enemy{
 
     public Summon(String name, int health, Weapon weapon, Armour armour){
         super(name, health);
-        summoned = false;
+        summoned = true;
         this.weapon = weapon;
         this.armour = armour;
     }
@@ -29,7 +29,6 @@ public class Summon extends Enemy{
             armour.damage();
             damage -= 1;
 
-
         }
         while (this.summoned && damage > 0){
             this.wound();
@@ -45,7 +44,15 @@ public class Summon extends Enemy{
     public void checkStatus() {
 
         if (this.getHealth() == 0) {
-            summoned = false;
+            this.summoned = false;
         }
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public Armour getArmour() {
+        return armour;
     }
 }
